@@ -1,0 +1,30 @@
+import logo from '../../assets/logo_going_white.png';
+import burgerMenu from '../../assets/burger_menu.png';
+import Burger from '../Burger';
+import { useVisibility } from '../../utils/hooks';
+
+function Header() {
+  const { toggleVisibility, burgerVisibility } = useVisibility();
+  return (
+    <div className="header">
+      <div className="topHeader">
+        <h1 className="siteTitle">
+          GOING
+          <br />
+          nuclear
+        </h1>
+        <img src={logo} alt="Logo" className="logo" />
+        <img
+          src={burgerMenu}
+          alt="Menu"
+          id="burgerMenu"
+          onClick={() => toggleVisibility()}
+        />
+        {burgerVisibility ? <Burger /> : null}
+      </div>
+      <h2 className="bottomHeader">Site web d'infographies sur le nucléaire</h2>
+    </div>
+  );
+}
+
+export default Header;

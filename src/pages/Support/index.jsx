@@ -1,6 +1,6 @@
 function Support() {
   return (
-    <div>
+    <div className="container">
       <h2>Me soutenir</h2>
     </div>
   );

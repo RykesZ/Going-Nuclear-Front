@@ -1,23 +1,30 @@
-import { useState, useEffect } from 'react'
-import logo from '../../assets/logo_going_white.png'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo_going_white.png';
 
 function Footer() {
-  const [emailInputValue, updateEmailInput] = useState('')
+  const [emailInputValue, updateEmailInput] = useState('');
 
   const handleEmailInput = (e) => {
-    updateEmailInput(e.target.value)
-  }
+    updateEmailInput(e.target.value);
+  };
 
   useEffect(() => {
-    console.log(emailInputValue)
-  }, [emailInputValue])
+    console.log(emailInputValue);
+  }, [emailInputValue]);
 
   return (
     <div className="footer">
       <div className="shortLinks">
-        <h4>À propos</h4>
-        <h4>Contact</h4>
-        <h4>Me soutenir</h4>
+        <Link to="/about">
+          <h4>À propos</h4>
+        </Link>
+        <Link to="/contact">
+          <h4>Contact</h4>
+        </Link>
+        <Link to="/support">
+          <h4>Me soutenir</h4>
+        </Link>
       </div>
       <div className="subscription">
         <p>
@@ -37,7 +44,7 @@ function Footer() {
         <p>Trademark</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

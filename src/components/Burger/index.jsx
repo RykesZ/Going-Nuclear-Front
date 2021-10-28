@@ -1,13 +1,25 @@
 import { Link } from 'react-router-dom';
+import { useVisibility } from '../../utils/hooks';
 
 function Burger() {
+  const { toggleVisibility } = useVisibility();
   return (
     <div className="burger">
-      <Link to="/">Accueil</Link>
-      <Link to="/about">À Propos</Link>
-      <Link to="/search">Rechercher</Link>
-      <Link to="/support">Me soutenir</Link>
-      <Link to="/contact">Contact</Link>
+      <Link to="/" onClick={() => toggleVisibility()}>
+        Accueil
+      </Link>
+      <Link to="/about" onClick={() => toggleVisibility()}>
+        À Propos
+      </Link>
+      <Link to="/search" onClick={() => toggleVisibility()}>
+        Rechercher
+      </Link>
+      <Link to="/support" onClick={() => toggleVisibility()}>
+        Me soutenir
+      </Link>
+      <Link to="/contact" onClick={() => toggleVisibility()}>
+        Contact
+      </Link>
     </div>
   );
 }

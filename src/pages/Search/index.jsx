@@ -1,6 +1,6 @@
 function Search() {
   return (
-    <div>
+    <div className="container">
       <h2>Rechercher</h2>
     </div>
   );

@@ -1,0 +1,33 @@
+.emailConfirmation {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: -20px;
+  margin-left: -75px;
+}
+
+.emailConfirmation--disappearing {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: -20px;
+  margin-left: -75px;
+  opacity: 0;
+  transition: all 250ms linear;
+}

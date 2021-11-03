@@ -1,5 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { BurgerContext } from '../context';
+import * as d3 from 'd3';
 
 export function useFetch(url) {
   const [data, setData] = useState({});
@@ -29,4 +30,14 @@ export function useFetch(url) {
 export function useVisibility() {
   const { burgerVisibility, toggleVisibility } = useContext(BurgerContext);
   return { burgerVisibility, toggleVisibility };
+}
+
+export function useD3(renderChartFn, dependencies) {
+  const ref = useRef();
+
+  useEffect(() => {
+    renderChartFn(d3.select(ref.current));
+    return () => {};
+  }, dependencies);
+  return ref;
 }

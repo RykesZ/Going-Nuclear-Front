@@ -84,7 +84,7 @@ function Footer() {
               value={emailInputValue}
             />
             <input
-              className="newsletterButton"
+              className="newsletterButton inputButton"
               type="submit"
               value="Je m'abonne !"
             />

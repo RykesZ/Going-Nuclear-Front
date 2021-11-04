@@ -1,0 +1,42 @@
+.unsubscribeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px 0 20px;
+  min-height: 600px;
+  max-width: 600px;
+  margin: auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .emailInput {
+    height: 25px;
+    border-radius: 10px;
+    border-style: solid 1px black;
+    padding: 5px;
+  }
+  .newsletterButton {
+    margin: 10px 0 10px 0;
+    height: 35px;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    font-weight: bold;
+    background-color: #0033e8;
+  }
+  .cancelButton {
+    margin: 10px 0 10px 0;
+    height: 35px;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    font-weight: bold;
+    background-color: #8d0114;
+    width: 100%;
+  }
+  a {
+    width: 100%;
+  }
+}

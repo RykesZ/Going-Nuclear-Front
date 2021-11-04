@@ -11,6 +11,20 @@ class ApiNewsletterRoutes {
       return error;
     }
   };
+
+  deleteSubscriber = async (data) => {
+    const subscriberEmail = data;
+    try {
+      const response = await axios.delete(api + '/', {
+        data: {
+          email: subscriberEmail,
+        },
+      });
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
 }
 
 export default new ApiNewsletterRoutes();

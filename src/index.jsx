@@ -10,6 +10,7 @@ import Search from './pages/Search';
 import Contact from './pages/Contact';
 import Support from './pages/Support';
 import reportWebVitals from './reportWebVitals';
+import Unsubscribe from './pages/Unsubscribe';
 import './App.scss';
 import { BurgerProvider } from './utils/context';
 
@@ -33,6 +34,9 @@ ReactDOM.render(
           </Route>
           <Route path="/support">
             <Support />
+          </Route>
+          <Route path="/unsubscribe/:email">
+            <Unsubscribe />
           </Route>
         </Switch>
         <Footer />

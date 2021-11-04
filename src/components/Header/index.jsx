@@ -26,6 +26,7 @@ function Header() {
             alt="Menu"
             id="burgerMenu"
             onClick={() => toggleVisibility()}
+            className="inputButton"
           />
         </div>
         <h2 className="bottomHeader">

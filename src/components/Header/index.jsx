@@ -7,7 +7,7 @@ import { useVisibility } from '../../utils/hooks';
 function Header() {
   const { toggleVisibility, burgerVisibility } = useVisibility();
   return (
-    <div className="header">
+    <header className="header">
       <div className="layoutContainer_Header">
         <div className="topHeader">
           <Link to="/">
@@ -34,7 +34,7 @@ function Header() {
         </h2>
         {burgerVisibility ? <Burger /> : null}
       </div>
-    </div>
+    </header>
   );
 }
 

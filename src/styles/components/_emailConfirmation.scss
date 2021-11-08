@@ -1,9 +1,10 @@
-.emailConfirmation {
+.emailConfirmation,
+.messageSent {
   display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 150px;
+  width: 250px;
   height: 40px;
   color: white;
   background-color: black;
@@ -11,15 +12,16 @@
   align-items: center;
   border-radius: 10px;
   margin-top: -20px;
-  margin-left: -75px;
+  margin-left: -125px;
 }
 
-.emailConfirmation--disappearing {
+.emailConfirmation--disappearing,
+.messageSent--disappearing {
   display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 150px;
+  width: 250px;
   height: 40px;
   color: white;
   background-color: black;
@@ -27,7 +29,7 @@
   align-items: center;
   border-radius: 10px;
   margin-top: -20px;
-  margin-left: -75px;
+  margin-left: -125px;
   opacity: 0;
   transition: all 250ms linear;
 }

@@ -5,6 +5,7 @@
   height: 90px;
   position: sticky;
   top: 0;
+  width: 100%;
   .layoutContainer_Header {
     display: flex;
     flex-direction: column;
@@ -17,13 +18,16 @@
       align-items: center;
       margin: 10px 20px 0 20px;
       max-height: 60%;
+      a {
+        text-decoration: none;
+      }
       .siteTitle {
         text-align: center;
         width: 85px;
-        font-size: 0.8em;
+        font-size: 0.75em;
         color: white;
         font-family: 'ethnocentric';
-        text-decoration: underline white;
+        font-weight: lighter;
       }
       .logo {
         height: 100%;
@@ -34,11 +38,11 @@
       #burgerMenu {
         max-height: 80%;
         width: 45px;
-        padding: 0 20px 0 20px;
+        padding: 0 0px 0 20px;
       }
     }
     .bottomHeader {
-      font-size: 1em;
+      font-size: 0.8em;
       margin: 0;
       display: flex;
       justify-content: center;

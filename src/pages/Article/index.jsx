@@ -63,7 +63,7 @@ function Article() {
   let infoName = article.infographie;
 
   return (
-    <div className="article">
+    <main className="article">
       <Pagination />
       <h2>{title}</h2>
       <h4>
@@ -71,7 +71,7 @@ function Article() {
       </h4>
       <p>{text}</p>
       <Infographie data={data} infoName={infoName} />
-    </div>
+    </main>
   );
 }
 

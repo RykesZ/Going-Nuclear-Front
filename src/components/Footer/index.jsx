@@ -56,7 +56,7 @@ function Footer() {
   }, [emailConfirmed]);
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="layoutContainer_Footer">
         <div className="shortLinks">
           <Link to="/about">
@@ -96,7 +96,7 @@ function Footer() {
           <p>Trademark</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

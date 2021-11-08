@@ -4,7 +4,7 @@ import { useVisibility } from '../../utils/hooks';
 function Burger() {
   const { toggleVisibility } = useVisibility();
   return (
-    <div className="burger">
+    <nav className="burger">
       <Link to="/" onClick={() => toggleVisibility()}>
         Accueil
       </Link>
@@ -20,7 +20,7 @@ function Burger() {
       <Link to="/contact" onClick={() => toggleVisibility()}>
         Contact
       </Link>
-    </div>
+    </nav>
   );
 }
 

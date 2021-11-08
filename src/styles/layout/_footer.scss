@@ -3,9 +3,10 @@
   justify-content: center;
   background-color: #000000;
   align-items: stretch;
-  height: 300px;
+  height: 350px;
   color: white;
   overflow: hidden;
+  width: 100%;
   .layoutContainer_Footer {
     display: flex;
     flex-direction: column;
@@ -17,15 +18,16 @@
       justify-content: space-between;
       margin: 0 20px 0 20px;
       text-decoration: underline;
-
       h4 {
         width: 100px;
         text-align: center;
         margin: 20px 0 0 0;
+        font-weight: lighter;
       }
     }
     .logo {
       height: 30%;
+      margin: 10px 0 10px 0;
     }
     .trademark {
       display: flex;
@@ -33,6 +35,8 @@
       align-items: center;
       p {
         margin: 5px;
+        font-size: 0.7em;
+        margin: 10px 0 10px 0;
       }
     }
     .subscription {

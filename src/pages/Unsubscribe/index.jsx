@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ApiNewsletterRoutes from '../../services/newsletterSubscription';
+import ApiNewsletterRoutes from '../../services/ApiNewsletterRoutes';
 
 function Unsubscribe() {
   let { email } = useParams();

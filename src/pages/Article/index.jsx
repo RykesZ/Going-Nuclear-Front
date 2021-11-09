@@ -1,4 +1,4 @@
-import ApiArticleRoutes from '../../services/getArticles';
+import ApiArticleRoutes from '../../services/ApiArticleRoutes';
 import { useState, useEffect } from 'react';
 import Pagination from '../../components/Pagination';
 import Infographie from '../../components/Infographie';

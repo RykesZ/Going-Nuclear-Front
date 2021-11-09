@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo_going_white.png';
 import EmailConfirmation from '../EmailConfirmation';
-import ApiNewsletterRoutes from '../../services/newsletterSubscription';
+import ApiNewsletterRoutes from '../../services/ApiNewsletterRoutes';
+import { emailValidation } from '../../services/emailValidation';
 
 function Footer() {
   const [emailInputValue, updateEmailInput] = useState('');
@@ -19,7 +20,7 @@ function Footer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (emailValidation()) {
+    if (emailValidation(emailInputValue)) {
       ApiNewsletterRoutes.postNewSubscriber(emailInputValue)
         .then((response) => {
           if (response.status === 201) {
@@ -39,16 +40,6 @@ function Footer() {
     }
   };
 
-  const emailValidation = () => {
-    const regex =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    if (!emailInputValue || regex.test(emailInputValue) === false) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setEmailConfirmed(false);
@@ -65,9 +56,9 @@ function Footer() {
           <Link to="/contact">
             <h4>Contact</h4>
           </Link>
-          <Link to="/support">
+          {/* <Link to="/support">
             <h4>Me soutenir</h4>
-          </Link>
+          </Link> */}
         </div>
         <div className="subscription">
           <p>
@@ -93,7 +84,7 @@ function Footer() {
         </div>
         <div className="trademark">
           <img src={logo} alt="Logo" className="logo" />
-          <p>Trademark</p>
+          <p>Going Nuclear</p>
         </div>
       </div>
     </footer>

@@ -6,9 +6,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Article from './pages/Article';
 import About from './pages/About';
-import Search from './pages/Search';
+//import Search from './pages/Search';
 import Contact from './pages/Contact';
-import Support from './pages/Support';
+//import Support from './pages/Support';
 import reportWebVitals from './reportWebVitals';
 import Unsubscribe from './pages/Unsubscribe';
 import './App.scss';
@@ -26,15 +26,15 @@ ReactDOM.render(
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/search">
+          {/* <Route path="/search">
             <Search />
-          </Route>
+          </Route> */}
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/support">
+          {/* <Route path="/support">
             <Support />
-          </Route>
+          </Route> */}
           <Route path="/unsubscribe/:email">
             <Unsubscribe />
           </Route>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ApiContactRoutes from '../../services/ApiContactRoutes';
 import MessageSent from '../../components/MessageSent';
+import { emailValidation } from '../../services/emailValidation';
 
 function Contact() {
   const [emailInputValue, updateEmailInput] = useState('');
@@ -26,7 +27,11 @@ function Contact() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (emailValidation() && objectInputValue !== '' && textInputValue !== '') {
+    if (
+      emailValidation(emailInputValue) &&
+      objectInputValue !== '' &&
+      textInputValue !== ''
+    ) {
       ApiContactRoutes.sendNewMessage(
         emailInputValue,
         objectInputValue,
@@ -44,16 +49,6 @@ function Contact() {
           console.log('erreur');
         }
       });
-    }
-  };
-
-  const emailValidation = () => {
-    const regex =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    if (!emailInputValue || regex.test(emailInputValue) === false) {
-      return false;
-    } else {
-      return true;
     }
   };
 

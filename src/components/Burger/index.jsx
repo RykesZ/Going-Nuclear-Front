@@ -11,12 +11,12 @@ function Burger() {
       <Link to="/about" onClick={() => toggleVisibility()}>
         À Propos
       </Link>
-      <Link to="/search" onClick={() => toggleVisibility()}>
+      {/* <Link to="/search" onClick={() => toggleVisibility()}>
         Rechercher
       </Link>
       <Link to="/support" onClick={() => toggleVisibility()}>
         Me soutenir
-      </Link>
+      </Link> */}
       <Link to="/contact" onClick={() => toggleVisibility()}>
         Contact
       </Link>

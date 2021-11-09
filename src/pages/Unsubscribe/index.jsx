@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ApiNewsletterRoutes from '../../services/ApiNewsletterRoutes';
+import { emailValidation } from '../../services/emailValidation';
 
 function Unsubscribe() {
   let { email } = useParams();
@@ -26,16 +27,6 @@ function Unsubscribe() {
         });
     } else {
       console.log("L'adresse email rentrée n'est pas valide");
-    }
-  };
-
-  const emailValidation = (email) => {
-    const regex =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    if (!email || regex.test(email) === false) {
-      return false;
-    } else {
-      return true;
     }
   };
 

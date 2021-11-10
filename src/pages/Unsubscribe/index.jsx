@@ -41,14 +41,14 @@ function Unsubscribe() {
   }, [deletionConfirmed]);
 
   return (
-    <div className="unsubscribeForm">
+    <div>
       {deletionConfirmed ? (
         <div>
           <h3>Désabonnement à la newsletter confirmé !</h3>
           <p>Vous allez être redirigé</p>
         </div>
       ) : (
-        <div>
+        <div className="unsubscribeForm">
           <h2>Se désabonner de la newsletter Going Nuclear ?</h2>
           <form onSubmit={(e) => handleSubmit(e)}>
             <input

@@ -85,6 +85,7 @@ function Footer() {
         <div className="trademark">
           <img src={logo} alt="Logo" className="logo" />
           <p>Going Nuclear</p>
+          <p>Réalisé avec React.js et D3.js</p>
         </div>
       </div>
     </footer>

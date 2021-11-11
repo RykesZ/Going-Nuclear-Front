@@ -3,14 +3,6 @@ import { useState, useEffect } from 'react';
 import Pagination from '../../components/Pagination';
 import Infographie from '../../components/Infographie';
 
-const data = [
-  { year: '1980', efficiency: 24.3, sales: 8949000 },
-  { year: '1985', efficiency: 27.6, sales: 10979000 },
-  { year: '1990', efficiency: 28, sales: 9303000 },
-  { year: '1991', efficiency: 28.4, sales: 8185000 },
-  { year: '1992', efficiency: 27.9, sales: 8213000 },
-];
-
 function Article() {
   const emptyArticle = {
     title: 'Titre',
@@ -36,6 +28,7 @@ function Article() {
   let tags = article.tags;
   let text = article.text;
   let infoName = article.infographie;
+  let data = article;
 
   return (
     <main className="article">

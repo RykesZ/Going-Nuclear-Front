@@ -1,70 +1,54 @@
-import { useD3 } from '../../../utils/hooks';
+import { useD3, useWindowDimensions } from '../../../utils/hooks';
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 import { useState } from 'react';
 
 function BarChart() {
-  const [windowWidth, updateWindowWidth] = useState(window.innerWidth);
-  const [widthCoeff, updateCoeff] = useState(windowWidth / 720);
+  const { width, height } = useWindowDimensions();
 
-  const getWidthAndCoeff = () => {
-    let dynamicWidth = window.innerWidth;
-    console.log(dynamicWidth);
-    updateWindowWidth(dynamicWidth);
-    updateCoeff(windowWidth / 720);
-    console.log(windowWidth);
-    console.log(widthCoeff);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', getWidthAndCoeff());
-    return () => {
-      window.removeEventListener('resize', getWidthAndCoeff());
-    };
-  }, [windowWidth]);
-
-  var chartdata = [820, 490, 24, 12, 41, 11, 12, 38];
+  var chartdata = [820, 490, 38, 24, 12, 27, 44, 12];
 
   let verticalUnit = `gCO2eq/kWh`;
-  let horizontalUnit = 'Technologies actuellement disponibles commercialement';
+  let horizontalUnit1 = 'Technologies actuellement';
+  let horizontalUnit2 = 'disponibles commercialement';
   let tickLabels = [
-    'Coal - PC',
-    'Gas - Combined Cycle',
-    'Hydropower',
-    'Nuclear',
-    'Solar PV - rooftop',
-    'Wind onshore',
-    'Wind offshore',
-    'Geothermal',
+    'Charbon',
+    'Gaz',
+    'Géothermie',
+    'Hydroélectricité',
+    'Nucléaire',
+    'Énergie solaire concentrée',
+    'Solaire photovoltaïque',
+    'Éolien',
   ];
 
   const ref = useD3(() => {
     //  the data that powers the bar chart, a simple array of numeric values
 
     //  the size of the overall svg element
-    var height = 200,
-      width = windowWidth / widthCoeff;
+    var chartHeight = 200,
+      chartWidth = (50 / 100) * width;
 
-    var margin = { top: 30, right: 50, bottom: 50, left: 70 };
+    var margin = { top: 30, right: 50, bottom: 120, left: 70 };
     var dynamicColor;
     var yScale = d3
       .scaleLinear()
       .domain([0, d3.max(chartdata)])
-      .range([0, height]);
+      .range([0, chartHeight]);
 
     var xScale = d3
       .scaleBand()
       .domain(d3.range(0, chartdata.length))
-      .range([0, width])
+      .range([0, chartWidth])
       .padding(0.1);
 
     // Définit le graphique en barres
     d3.select('#bar-chart')
       .append('svg')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-      .style('fill', '#3c763d')
-      .style('background', '#dff0d8')
+      .attr('width', chartWidth + margin.left + margin.right)
+      .attr('height', chartHeight + margin.top + margin.bottom)
+      .style('fill', '#1976d2')
+      .style('background', '#B0D1FF')
       .append('g')
       .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')')
       .selectAll('rect')
@@ -79,11 +63,11 @@ function BarChart() {
         return xScale(i);
       })
       .attr('y', function (data) {
-        return height - yScale(data);
+        return chartHeight - yScale(data);
       })
       .on('mouseover', function (data) {
         dynamicColor = this.style.fill;
-        d3.select(this).style('fill', '#8c0900');
+        d3.select(this).style('fill', '#004ba0');
       })
       .on('mouseout', function (data) {
         d3.select(this).style('fill', dynamicColor);
@@ -92,7 +76,7 @@ function BarChart() {
     var verticalGuideScale = d3
       .scaleLinear()
       .domain([0, d3.max(chartdata)])
-      .range([height, 0]);
+      .range([chartHeight, 0]);
 
     var vAxis = d3.axisLeft().scale(verticalGuideScale).ticks(10);
 
@@ -102,11 +86,11 @@ function BarChart() {
       .call((g) =>
         g
           .append('text')
-          .attr('x', width / 2 - margin.right * 2.5)
-          .attr('y', height + margin.bottom / 1.25)
+          .attr('x', -margin.left / 1.1)
+          .attr('y', -margin.top / 2)
           .attr('fill', 'currentColor')
           .attr('text-anchor', 'start')
-          .text(horizontalUnit)
+          .text(verticalUnit)
       );
     vAxis(verticalGuide);
     verticalGuide.attr(
@@ -116,8 +100,8 @@ function BarChart() {
     verticalGuide
       .selectAll('path')
       .style('fill', 'none')
-      .style('stroke', '#3c763d');
-    verticalGuide.selectAll('line').style('stroke', '#3c763d');
+      .style('stroke', '#004ba0');
+    verticalGuide.selectAll('line').style('stroke', '#004ba0');
 
     var hAxis = d3
       .axisBottom()
@@ -125,30 +109,26 @@ function BarChart() {
       .tickSize(chartdata.length)
       .tickFormat(function (data, i) {
         return tickLabels[i];
-      });
+      })
+      .tickSize(0);
 
-    var horizontalGuide = d3
-      .select('svg')
-      .append('g')
-      .call((g) =>
-        g
-          .append('text')
-          .attr('x', -margin.left / 1.1)
-          .attr('y', -(height + margin.top / 2))
-          .attr('fill', 'currentColor')
-          .attr('text-anchor', 'start')
-          .text(verticalUnit)
-      );
+    var horizontalGuide = d3.select('svg').append('g');
     hAxis(horizontalGuide);
     horizontalGuide.attr(
       'transform',
-      'translate(' + margin.left + ', ' + (height + margin.top) + ')'
+      'translate(' + margin.left + ', ' + (chartHeight + margin.top) + ')'
     );
     horizontalGuide
       .selectAll('path')
       .style('fill', 'none')
-      .style('stroke', '#3c763d');
-    horizontalGuide.selectAll('line').style('stroke', '#3c763d');
+      .style('stroke', '#004ba0');
+    horizontalGuide.selectAll('line').style('stroke', '#004ba0');
+
+    horizontalGuide
+      .selectAll('.tick text')
+      .style('padding', '20px')
+      .attr('transform', 'rotate(-65)')
+      .attr('text-anchor', 'end');
   }, [chartdata.length]);
 
   return (

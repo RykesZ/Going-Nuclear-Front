@@ -8,7 +8,8 @@ function BarChart() {
     40, 60, 80, 100, 70, 120, 100, 60, 70, 150, 120, 140, 140, 120, 150, 70, 60,
     100, 120, 70, 100, 80, 60, 40,
   ];
-
+  let horizontalUnit1 = 'Technologies actuellement';
+  let horizontalUnit2 = 'disponibles commercialement';
   const ref = useD3(() => {
     //  the data that powers the bar chart, a simple array of numeric values
 
@@ -90,11 +91,18 @@ function BarChart() {
       .call((g) =>
         g
           .append('text')
-          .attr('x', -(margin.left / 2))
-          .attr('y', -(height + margin.top / 2))
+
+          .attr('y', margin.bottom / 1.2)
           .attr('fill', 'currentColor')
-          .attr('text-anchor', 'start')
-          .text('coucou')
+          .attr('text-anchor', 'middle')
+          .append('tspan')
+          .attr('x', '40%')
+          .attr('dy', '0em')
+          .text(horizontalUnit1)
+          .append('tspan')
+          .attr('x', '40%')
+          .attr('dy', '1em')
+          .text(horizontalUnit2)
       );
     hAxis(horizontalGuide);
     horizontalGuide.attr(

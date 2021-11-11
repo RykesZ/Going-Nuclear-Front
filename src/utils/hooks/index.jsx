@@ -41,3 +41,25 @@ export function useD3(renderChartFn, dependencies) {
   }, [dependencies]);
   return ref;
 }
+
+export function useWindowDimensions() {
+  function getWindowsDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return { width, height };
+  }
+
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowsDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowsDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}

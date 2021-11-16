@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api = 'http://localhost:5000/api/contact';
+const api = 'https://going-nuclear.herokuapp.com/contact';
 
 class ApiContactRoutes {
   sendNewMessage = async (email, object, text) => {

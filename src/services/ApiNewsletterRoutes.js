@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api = 'http://localhost:5000/api/newsletter';
+const api = 'https://going-nuclear.herokuapp.com/newsletter';
 
 class ApiNewsletterRoutes {
   postNewSubscriber = async (data) => {

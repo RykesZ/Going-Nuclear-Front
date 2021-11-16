@@ -1,0 +1,3 @@
+@mixin colour-variation($colour: lightness-shift($colour-tertiary)) {
+  color: $colour;
+}

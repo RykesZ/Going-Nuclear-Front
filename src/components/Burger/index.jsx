@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useVisibility } from '../../utils/hooks';
 
-function Burger() {
+function Burger({ className1, animated }) {
   const { toggleVisibility } = useVisibility();
+  let classList = '';
+  if (animated) {
+    classList = `${className1}` + ' ' + 'animated';
+  } else {
+    classList = `${className1}`;
+  }
   return (
-    <nav className="burger">
+    <nav className={classList}>
       <Link to="/" onClick={() => toggleVisibility()}>
         Accueil
       </Link>

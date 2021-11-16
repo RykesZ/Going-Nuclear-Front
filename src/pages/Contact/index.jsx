@@ -96,7 +96,9 @@ function Contact() {
             ></textarea>
           </div>
         </div>
-        <input type="submit" className="submitContactForm inputButton" />
+        <button type="submit" className="submitContactForm inputButton">
+          Envoyer
+        </button>
       </form>
       {popupMessageSent}
     </main>

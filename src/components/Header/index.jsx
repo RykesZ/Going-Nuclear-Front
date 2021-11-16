@@ -3,9 +3,17 @@ import burgerMenu from '../../assets/burger_menu.png';
 import Burger from '../Burger';
 import { Link } from 'react-router-dom';
 import { useVisibility } from '../../utils/hooks';
+import { useState } from 'react';
 
 function Header() {
   const { toggleVisibility, burgerVisibility } = useVisibility();
+  const [firstClicked, setFirstClicked] = useState(false);
+
+  const handleBurgerClick = () => {
+    toggleVisibility();
+    setFirstClicked(true);
+  };
+
   return (
     <header className="header">
       <div className="layoutContainer_Header">
@@ -21,19 +29,26 @@ function Header() {
             <img src={logo} alt="Logo" className="logo" />
           </Link>
 
-          <img
-            src={burgerMenu}
-            alt="Menu"
-            id="burgerMenu"
-            onClick={() => toggleVisibility()}
-            className="inputButton"
-          />
+          <div className="burgerMenu" onClick={() => handleBurgerClick()}>
+            <div
+              className={
+                burgerVisibility ? 'barGroupAscend' : 'barGroupDescend'
+              }
+            >
+              <div id="bar1" className="burgerBar"></div>
+              <div id="bar2" className="burgerBar"></div>
+              <div id="bar3" className="burgerBar"></div>
+            </div>
+          </div>
         </div>
         <h2 className="bottomHeader">
           Site web d'infographies sur le nucléaire
         </h2>
-        {burgerVisibility ? <Burger /> : null}
       </div>
+      <Burger
+        className1={burgerVisibility ? 'burgerUp' : 'burgerDown'}
+        animated={firstClicked}
+      />
     </header>
   );
 }

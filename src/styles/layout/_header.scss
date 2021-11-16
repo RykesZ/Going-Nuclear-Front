@@ -6,11 +6,14 @@
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 20;
   .layoutContainer_Header {
     display: flex;
     flex-direction: column;
+    background-color: #000000;
     max-width: 600px;
     width: 100%;
+    z-index: 15;
     .topHeader {
       display: flex;
       flex-direction: row;
@@ -26,7 +29,7 @@
         width: 85px;
         font-size: 0.75em;
         color: white;
-        font-family: 'ethnocentric';
+        font-family: 'ethnocentric', sans-serif;
         font-weight: lighter;
       }
       .logo {
@@ -35,10 +38,85 @@
         margin: auto;
         align-self: center;
       }
-      #burgerMenu {
+      .burgerMenu {
         max-height: 80%;
         width: 45px;
-        padding: 0 0px 0 20px;
+        height: 100%;
+        margin: 0 0px 0 20px;
+        cursor: pointer;
+        border: solid 1px white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        .barGroupDescend {
+          transform: rotate(0);
+        }
+        .barGroupAscend {
+          transform: rotate(180);
+        }
+        .barGroupDescend,
+        .barGroupAscend {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          transition-property: transform;
+          transition-duration: 500ms;
+          #bar1 {
+            position: relative;
+            top: 10px;
+            left: 0;
+            transform: rotate(0);
+
+            transition-property: top, left, transform;
+            transition-duration: 500ms;
+          }
+          #bar2 {
+            position: relative;
+            top: 20px;
+            left: 0;
+            transform: rotate(0);
+
+            transition-property: top, left, transform;
+            transition-duration: 500ms;
+          }
+          #bar3 {
+            position: relative;
+            top: 30px;
+            transition-property: top;
+            transition-duration: 500ms;
+          }
+        }
+        &:hover {
+          .barGroupAscend {
+            transform: rotate(0);
+          }
+          .barGroupDescend {
+            transform: rotate(180deg);
+          }
+          .barGroupDescend,
+          .barGroupAscend {
+            #bar1 {
+              top: 20px;
+              left: 6px;
+              transform: rotate(60deg);
+            }
+            #bar2 {
+              top: 19px;
+              left: -6px;
+              transform: rotate(-60deg);
+            }
+            #bar3 {
+              top: 29px;
+            }
+          }
+        }
+        .burgerBar {
+          width: 55%;
+          height: 1px;
+          background-color: white;
+        }
       }
     }
     .bottomHeader {
@@ -47,7 +125,7 @@
       display: flex;
       justify-content: center;
       color: white;
-      font-family: 'Roboto';
+      font-family: 'Roboto', sans-serif;
     }
   }
 }

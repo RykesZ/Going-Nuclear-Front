@@ -4,6 +4,7 @@
   background-color: #000000;
   align-items: stretch;
   height: 375px;
+  bottom: 0;
   color: white;
   overflow: hidden;
   width: 100%;
@@ -28,6 +29,7 @@
     .logo {
       height: 30%;
       margin: 10px 0 10px 0;
+      cursor: pointer;
     }
     .trademark {
       display: flex;
@@ -68,7 +70,6 @@
         border-style: none;
         color: white;
         font-weight: bold;
-        background-color: #0033e8;
       }
     }
     a {

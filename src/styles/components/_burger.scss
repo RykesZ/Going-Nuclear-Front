@@ -1,17 +1,45 @@
-.burger {
+.burgerDown,
+.burgerUp {
   display: flex;
   flex-direction: column;
   background-color: black;
   position: absolute;
-  bottom: -118px; //-196px
+  bottom: 0; //-196px
   width: 100%;
   max-width: 600px;
   border-top: solid 1px white;
+  z-index: 5;
   a {
     text-align: center;
     padding: 10px;
     color: white;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
+  }
+}
+
+.burgerDown.animated {
+  animation: slide-up 500ms both;
+}
+
+.burgerUp {
+  animation: slide-down 500ms both;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(118px);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(118px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

@@ -74,11 +74,9 @@ function Footer() {
               onChange={handleEmailInput}
               value={emailInputValue}
             />
-            <input
-              className="newsletterButton inputButton"
-              type="submit"
-              value="Je m'abonne !"
-            />
+            <button className="newsletterButton inputButton" type="submit">
+              Je m'abonne !
+            </button>
           </form>
           {popupEmailConfirmed}
         </div>

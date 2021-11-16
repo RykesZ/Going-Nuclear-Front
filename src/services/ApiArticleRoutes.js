@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api = 'https://going-nuclear.herokuapp.com/articles';
+const api = 'https://going-nuclear.herokuapp.com/api/articles';
 
 class ApiArticleRoutes {
   getOneArticle = async (data) => {

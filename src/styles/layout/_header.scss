@@ -26,8 +26,9 @@
       }
       .siteTitle {
         text-align: center;
-        width: 85px;
-        font-size: 0.75em;
+        width: 100%;
+        max-width: 100px;
+        font-size: 1em;
         color: white;
         font-family: 'ethnocentric', sans-serif;
         font-weight: lighter;
@@ -42,7 +43,7 @@
         max-height: 80%;
         width: 45px;
         height: 100%;
-        margin: 0 0px 0 20px;
+        margin: 0 0px 0 35px;
         cursor: pointer;
         border: solid 1px white;
         border-radius: 10px;

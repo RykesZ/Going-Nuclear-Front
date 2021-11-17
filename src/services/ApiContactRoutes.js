@@ -1,5 +1,6 @@
 import axios from 'axios';
-const api = 'https://going-nuclear-back-a99nq.ondigitalocean.app/api/contact';
+require('dotenv').config({ path: '../.env' });
+const api = `${process.env.BACK_END_URL}/contact`;
 
 class ApiContactRoutes {
   sendNewMessage = async (email, object, text) => {

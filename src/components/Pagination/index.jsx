@@ -17,7 +17,7 @@ function Pagination() {
 
   let count = articleCount;
   return (
-    <div>
+    <div className="pagination">
       <p>{count}</p>
     </div>
   );

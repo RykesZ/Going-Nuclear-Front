@@ -9,6 +9,7 @@ function Article() {
     tags: 'tags',
     text: 'texte',
     infographie: 'none',
+    sources: ['source1'],
   };
 
   const [article, updateArticle] = useState(emptyArticle);
@@ -17,7 +18,6 @@ function Article() {
     ApiArticleRoutes.getLastArticle()
       .then((response) => {
         updateArticle(response.data[0]);
-        console.log(response.data[0]);
       })
       .catch((error) => {
         console.log(error);
@@ -29,6 +29,7 @@ function Article() {
   let text = article.text;
   let infoName = article.infographie;
   let data = article;
+  let sources = article.sources;
 
   return (
     <main className="article">
@@ -39,6 +40,12 @@ function Article() {
       </h4>
       <p>{text}</p>
       <Infographie data={data} infoName={infoName} />
+      <h5>Sources :</h5>
+      <ul>
+        {sources.map((source) => (
+          <li key={source}>{source}</li>
+        ))}
+      </ul>
     </main>
   );
 }

@@ -47,12 +47,14 @@ function Article() {
           </h4>
           <p>{text}</p>
           <Infographie data={data} infoName={infoName} />
-          <h5>Sources :</h5>
-          <ul>
-            {sources.map((source) => (
-              <li key={source}>{source}</li>
-            ))}
-          </ul>
+          <div className="sources">
+            <h5>Sources :</h5>
+            <ul>
+              {sources.map((source) => (
+                <li key={source}>{source}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </main>

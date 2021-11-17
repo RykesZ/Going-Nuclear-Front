@@ -20,12 +20,12 @@
   p {
     margin: 20px;
   }
-  h5 {
-    margin: 0;
-  }
-  ul {
-    li {
-      overflow-wrap: break-word;
+  .sources {
+    margin: 0 20px 0 20px;
+    ul {
+      li {
+        overflow-wrap: break-word;
+      }
     }
   }
 }
@@ -36,6 +36,9 @@
   animation-duration: 1000ms;
   animation-fill-mode: both;
   z-index: 5;
+  div {
+    max-width: 100%;
+  }
 }
 
 @keyframes appearing {

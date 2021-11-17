@@ -2,14 +2,14 @@ function About() {
   return (
     <div className="container">
       <h2>À Propos</h2>
-      <div>
+      <section>
         <h3>Qui es-tu ?</h3>
         <p>
           Un presque trentenaire récemment reconverti dans le développement web
           qui a passé trop de temps à lire et pas assez à partager.
         </p>
-      </div>
-      <div>
+      </section>
+      <section>
         <h3>Pourquoi ce site ?</h3>
         <p>
           Passionné par les sujets du changement climatique, de l'énergie, et
@@ -26,7 +26,7 @@ function About() {
           que je corrigerais les erreurs que l'on me fait remarquer. N'hésitez
           pas à me contacter grâce au formulaire de contact !
         </p>
-      </div>
+      </section>
     </div>
   );
 }

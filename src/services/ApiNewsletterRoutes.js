@@ -1,6 +1,6 @@
 import axios from 'axios';
 require('dotenv').config({ path: '../.env' });
-const api = `${process.env.BACK_END_URL}/newsletter`;
+const api = `${process.env.BACK_END_URL}/api/newsletter`;
 
 class ApiNewsletterRoutes {
   postNewSubscriber = async (data) => {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 require('dotenv').config({ path: '../.env' });
-const api = `${process.env.BACK_END_URL}/articles`;
+const api = `${process.env.BACK_END_URL}/api/articles`;
 
 class ApiArticleRoutes {
   getOneArticle = async (data) => {

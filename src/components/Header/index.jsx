@@ -1,5 +1,4 @@
 import logo from '../../assets/logo_going_white.png';
-import burgerMenu from '../../assets/burger_menu.png';
 import Burger from '../Burger';
 import { Link } from 'react-router-dom';
 import { useVisibility } from '../../utils/hooks';

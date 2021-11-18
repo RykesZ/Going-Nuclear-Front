@@ -1,6 +1,6 @@
 import axios from 'axios';
 require('dotenv').config({ path: '../.env' });
-const api = `https://going-nuclear-back-a99nq.ondigitalocean.app//api/newsletter`;
+const api = `https://going-nuclear-back-a99nq.ondigitalocean.app/api/newsletter`;
 
 class ApiNewsletterRoutes {
   postNewSubscriber = async (data) => {

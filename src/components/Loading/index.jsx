@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 
-function Loading({ isLoading }) {
+function Loading() {
   const [loadingString, updateLoadingString] = useState('Chargement');
   const [dotCount, setDotCount] = useState(0);
 
   useEffect(() => {
-    clearTimeout(loadingStringAnimation);
-  }, [isLoading]);
+    loadingStringAnimation();
+    return () => {
+      clearTimeout(loadingStringAnimation);
+    };
+  });
 
   const loadingStringAnimation = () => {
     setTimeout(() => {
@@ -32,8 +35,6 @@ function Loading({ isLoading }) {
       }
     }, 1000);
   };
-
-  loadingStringAnimation();
 
   return <div className="chargement">{loadingString}</div>;
 }

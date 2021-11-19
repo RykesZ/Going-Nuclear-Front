@@ -8,7 +8,6 @@ function Pagination() {
     ApiArticleRoutes.getArticlesCount()
       .then((response) => {
         updateArticleCount(response.data.count);
-        console.log(response.data.count);
       })
       .catch((error) => {
         console.log(error);

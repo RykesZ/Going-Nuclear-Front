@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function Loading() {
+function Loading({ isLoading }) {
   const [loadingString, updateLoadingString] = useState('Chargement');
   const [dotCount, setDotCount] = useState(0);
+
+  useEffect(() => {
+    clearTimeout(loadingStringAnimation);
+  }, [isLoading]);
 
   const loadingStringAnimation = () => {
     setTimeout(() => {

@@ -37,7 +37,7 @@ function Article() {
   return (
     <main className="article">
       {isLoading ? (
-        <Loading />
+        <Loading isLoading={isLoading} />
       ) : (
         <div>
           <Pagination />

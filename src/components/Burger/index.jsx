@@ -5,7 +5,7 @@ function Burger({ className1, animated }) {
   const { toggleVisibility } = useVisibility();
   let classList = '';
   if (animated) {
-    classList = `${className1}` + ' ' + 'animated';
+    classList = `${className1} animated`;
   } else {
     classList = `${className1}`;
   }

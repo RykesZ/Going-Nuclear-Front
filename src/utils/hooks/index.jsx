@@ -38,7 +38,7 @@ export function useD3(renderChartFn, dependencies) {
   useEffect(() => {
     renderChartFn(d3.select(ref.current));
     return () => {};
-  }, [dependencies]);
+  }, [dependencies]); // eslint-disable-line react-hooks/exhaustive-deps
   return ref;
 }
 

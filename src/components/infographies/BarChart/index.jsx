@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import * as d3 from 'd3';
 
 function BarChart({ data }) {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const [chartData, updateChartData] = useState(['']);
   const [tickLabels, updateTickLabels] = useState(['']);
   const [verticalUnit, updateVerticalUnit] = useState('');
-  const [horizontalUnit, updateHorizontalUnit] = useState(['']);
+  //const [horizontalUnit, updateHorizontalUnit] = useState(['']);
 
   useEffect(() => {
     if (data.chartData) {
@@ -18,7 +18,7 @@ function BarChart({ data }) {
     }
     updateTickLabels(data.tickLabels);
     updateVerticalUnit(data.verticalUnit);
-    updateHorizontalUnit(data.horizontalUnit);
+    //updateHorizontalUnit(data.horizontalUnit);
   }, [data]);
 
   const ref = useD3(

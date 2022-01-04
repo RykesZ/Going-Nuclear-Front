@@ -51,7 +51,9 @@ function Article() {
             <h5>Sources :</h5>
             <ul>
               {sources.map((source) => (
-                <li key={source}>{source}</li>
+                <li key={source}>
+                  <a href={source}>{source}</a>
+                </li>
               ))}
             </ul>
           </div>
